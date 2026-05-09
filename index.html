@@ -56,25 +56,34 @@
         @media (max-width: 600px) {
             .container {
                 width: 90%; /* Mehr Platz am Rand auf dem Handy */
+                max-width: 600px; /* Begrenzung der maximalen Breite */
                 margin: 20px auto;
-        }
+                padding: 15px; /* Weniger Padding auf dem Handy */
+                box-sizing: border-box; /* Damit Padding in der Gesamtbreite enthalten ist */
+            }
+            img {
+                max-width: 100%; /* Bilder passen sich der Containerbreite an */
+                height: auto; /* Höhe automatisch anpassen */
+                display: block; /* Verhindert unerwünschte Leerzeichen unter Bildern */
+                margin: 0 auto; /* Zentriert Bilder auf dem Handy */
+            }
 
-        .dev-credits {
-            left: 10px;
-            bottom: 10px;
-            padding: 8px;
-            font-size: 10px; /* Schrift etwas kleiner */
-        }
+            .dev-credits {
+                left: 10px;
+                bottom: 10px;
+                padding: 8px;
+                font-size: 10px; /* Schrift etwas kleiner */
+            }
 
-        .dev-team {
-            gap: 8px;
-        }
+            .dev-team {
+                gap: 8px;
+            }
 
-        .dev-profile img {
-            width: 40px;
-            height: 40px;
+            .dev-profile img {
+                width: 40px;
+                height: 40px;
+            }
         }
-}
 
     </style>
 </head>
