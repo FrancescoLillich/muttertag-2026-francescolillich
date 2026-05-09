@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alles Liebe zum Muttertag!</title>
+    <!-- Wir binden CSS direkt hier ein für den Anfang -->
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #fdf2f4; color: #333; }
+        .container { max-width: 800px; margin: 50px auto; padding: 20px; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #d63384; }
+        .photo-placeholder { width: 100%; height: 300px; background: #eee; line-height: 300px; border-radius: 10px; margin: 20px 0; }
+        .message { font-style: italic; line-height: 1.6; }
+
+        .dev-credits {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 12px;
+            z-index: 1000; /* Damit es immer über anderen Elementen liegt */
+            border: 1px solid #ffc1e3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dev-team {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .dev-profile {
+            text-align: center;
+        }
+
+        .dev-profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Macht das Bild rund */
+            object-fit: cover; /* Verhindert Verzerrung */
+            border: 2px solid #d63384;
+        }
+
+        .dev-name {
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* Wenn der Bildschirm schmaler als 600px ist (typisch für Handys) */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%; /* Mehr Platz am Rand auf dem Handy */
+                margin: 20px auto;
+        }
+
+        .dev-credits {
+            left: 10px;
+            bottom: 10px;
+            padding: 8px;
+            font-size: 10px; /* Schrift etwas kleiner */
+        }
+
+        .dev-team {
+            gap: 8px;
+        }
+
+        .dev-profile img {
+            width: 40px;
+            height: 40px;
+        }
+}
+
+    </style>
+</head>
+<body>
+
+    <div id="start-screen">
+        <h2>Sicherheitsüberprüfung</h2>
+        <p>Bitte bestätigen Sie, dass Sie die beste Mama auf der Welt sind, um fortzufahren.</p>
+        <button onclick="showCaptcha()">Zugriff anfordern</button>
+
+        <div id="captcha-box" style="display: none; margin-top: 20px;">
+        <p>Geben Sie "MAMA" ein:</p>
+        <input type="text" id="captcha-input" placeholder="Hier tippen...">
+        <button onclick="verifyCaptcha()">Prüfen</button>
+        </div>
+    </div>
+
+    <div id="gift-screen" style="display: none;">
+        <h1>Alles Liebe zum Muttertag! ❤️</h1>
+        <img src="mama.jpeg" alt="Foto von Mama" style="max-width: 100%; border-radius: 10px;">
+        <div class="message">
+            <p>Schau in Francescos Auto!</p>
+        </div>
+    </div>
+
+    <script>
+        function showCaptcha() {
+            // Zeigt das Captcha-Eingabefeld an
+            document.getElementById('captcha-box').style.display = 'block';
+        }
+
+        function verifyCaptcha() {
+            const input = document.getElementById('captcha-input').value;
+        
+            // Einfache Logik-Prüfung (Case-Insensitive)
+            if (input.toUpperCase() === "MAMA") {
+                // Verstecke den Startbildschirm
+                document.getElementById('start-screen').style.display = 'none';
+                // Zeige das Geschenk
+                document.getElementById('gift-screen').style.display = 'block';
+                alert("Verifizierung erfolgreich! Hab dich lieb.");
+            } else {
+                alert("Falscher Code! Versuch es nochmal (Tipp: MAMA).");
+            }
+        }
+    </script>
+
+    <div class="dev-credits">
+    <strong>Entwickelt von:</strong>
+    <div class="dev-team">
+        <!-- Entwickler 1 -->
+        <div class="dev-profile">
+            <img src="Ich.jpeg" alt="Entwickler 1">
+            <span class="dev-name">Francesco Lillich</span>
+        </div>
+        <!-- Entwickler 2 -->
+        <div class="dev-profile">
+            <img src="Matteo.jpeg" alt="Entwickler 2">
+            <span class="dev-name">Matteo Lillich</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
